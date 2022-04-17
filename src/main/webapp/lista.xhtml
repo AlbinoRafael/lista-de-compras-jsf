@@ -1,25 +1,61 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Lista de Compras</title>
-    <h:outputStylesheet name="css/styles.css" />
+    <h:outputStylesheet name="css/styles.css"/>
 </h:head>
 <h:body>
     <div class="header">
         <div class="logomarca">
             <span>Lista de Compras</span>
         </div>
-<!--        <div class="itens-menu">-->
-<!--            <span><h:link value="Listagem" outcome="listagem" styleClass="item-menu" /></span>-->
-<!--            <span><h:link value="Cadastro de Livro" outcome="cadastrolivro" styleClass="item-menu" /></span>-->
-<!--            <span><h:link value="Cadastro de Leitor" outcome="cadastroleitor" styleClass="item-menu" /></span>-->
-<!--        </div>-->
+    </div>
+    <div class="main">
+
+        <f:metadata>
+            <f:event type="preRenderView" listener="#{listaBean.onload}"/>
+        </f:metadata>
+
+        <h:form id="form-cadastro-item" styleClass="form-item-container">
+            <p:panelGrid id="panel-cadastro-item" columns="3" styleClass="input-container">
+                <p:outputLabel value="Item:" for="input-nome-item"/>
+                <h:panelGroup styleClass="input-campo-e-erro">
+                    <p:inputText value="#{listaBean.item}" id="input-nome-item" maxlength="100"/>
+                    <p:message for="input-nome-item" style="font-size: 0.8rem"/>
+                </h:panelGroup>
+                <p:commandButton style="margin: 0px"
+                                 value="#{'+'}"
+                                 action="#{listaBean.adicionarItem(listaBean.item)}"
+                                 update="form-cadastro-item, form-itens"/>
+            </p:panelGrid>
+        </h:form>
+
+        <h:form id="form-itens">
+            <p:panelGrid id="panel-lista-item" columns="2" styleClass="list-container">
+                <h:panelGroup styleClass="lista-e-botao">
+                    <p:selectManyMenu id="advanced" value="#{listaBean.itensSelecionados}"
+                                      var="item" filter="true" filterMatchMode="contains" showCheckbox="true"
+                                      styleClass="manymenu-advanced">
+                        <f:selectItems value="#{listaBean.lista}" var="item" itemValue="#{item}"/>
+                        <p:column>
+                            <h:outputText value="#{item}"/>
+                        </p:column>
+                    </p:selectManyMenu>
+                </h:panelGroup>
+                <p:column headerText="Ações">
+                    <p:commandButton value="-" action="#{listaBean.removerItens}"
+                                     onclick="return confirm('Confirma exclusão?')" styleClass="ui-button-danger"
+                                     update="advanced"/>
+                </p:column>
+            </p:panelGrid>
+        </h:form>
     </div>
 </h:body>
-        </html>
+</html>

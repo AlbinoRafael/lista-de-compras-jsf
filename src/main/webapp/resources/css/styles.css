@@ -9,18 +9,13 @@
     --text-error: red;
 }
 
-body {
-    margin: 0px;
-    padding: 0px;
-    font-family: 'Roboto', sans-serif;
-    height: 100vh;
-    background-color: var(--bg-primary-color);
-    color: var(--text-color-primary);
+.main{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 10px;
 }
-
 .header {
     background-color: var(--bg-secondary-color);
     min-height: 60px;
@@ -34,37 +29,25 @@ body {
     align-items: center;
     justify-content: space-around;
 }
-
-.itens-menu {
-    font-size: 1.4rem;
-}
-
-.item-menu {
-    margin: 0px 30px;
-    text-decoration: none;
-    color: var(--text-color-destaque);
-}
-
-.main {
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    background-color: var(--bg-primary-color);
+    color: var(--text-color-primary);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 30px 10px;
+    justify-content: space-between;
+}
+.form-cadastro-item{
+    margin-top: 50px;
 }
 
-.titulo-pagina {
-    margin: 35px 0px;
-    font-weight: bold;
-    font-size: 1.5rem;
+.list-container{
+    width: 400px;
+    height: 200px;
 }
-
-.form-mensagens {
-    color: var(--text-error);
-    font-size: 0.8rem;
-    font-weight: bold;
-}
-
 .input-container {
     font-size: 1.1rem;
 }
@@ -73,71 +56,4 @@ body {
     border-radius: 8px;
     font-size: 1.1rem;
     color: var(--text-color-primary);
-}
-
-.input-container input, label, .combobox-categoria {
-    margin: 5px;
-}
-
-.input-campo-e-erro {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.combobox-categoria {
-    font-size: 1.1rem;
-    color: var(--text-color-primary);
-    width: 280px;
-    border-radius: 8px;
-}
-
-.botao-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.btn-salvar {
-    width: 200px;
-    height: 40px;
-    margin: 25px 0px;
-    font-size: 1rem;
-    color: var(--text-color-primary);
-}
-
-.tab-livros, tab-leitores {
-    text-align: center;
-    font-size: 1.2rem;
-}
-
-.tab-header {
-    background-color: var(--bg-secondary-color);
-    color: var(--text-color-destaque);
-}
-
-.btn-acao {
-    text-decoration: none;
-    border: 1px dotted green;
-    border-radius: 5px;
-    padding: 3px;
-    margin: 2px 4px;
-}
-
-.btn-link-livro, .btn-link-leitor {
-    margin: 20px 0px;
-}
-
-.footer {
-    background-color: var(--bg-secondary-color);
-    min-height: 40px;
-    color: var(--text-color-destaque);
-    font-size: 1.1rem;
-    font-style: italic;
-    font-weight: bold;
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
 }
