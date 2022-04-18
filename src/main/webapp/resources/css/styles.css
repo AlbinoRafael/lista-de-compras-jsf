@@ -43,7 +43,9 @@ body {
 .form-cadastro-item{
     margin-top: 50px;
 }
-
+#input-quantidade-item{
+    width: 20px;
+}
 .list-container{
     width: 400px;
     height: 200px;

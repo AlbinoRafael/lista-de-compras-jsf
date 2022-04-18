@@ -6,7 +6,9 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Named
@@ -17,6 +19,10 @@ public class ListaBean implements Serializable {
     private ItemRepository itemRepo;
 
     private String item;
+    private BigDecimal quantidade;
+    private String medida;
+
+    private String itemFormatado;
     private List<String> lista = new ArrayList<>();
     private List<String> itensSelecionados = new ArrayList<>();
 
@@ -24,12 +30,15 @@ public class ListaBean implements Serializable {
         lista = itemRepo.obterItens();
     }
 
-    public String adicionarItem(String item) {
-        if(item!=null) {
-            itemRepo.adicionar(item);
+    public String adicionarItem() {
+        if(item!=null&&medida!=null) {
+            setItemFormatado();
+            itemRepo.adicionar(getItemFormatado());
+            this.item = new String();
+            this.quantidade = new BigDecimal(0);
+            this.medida = new String();
+            this.lista = itemRepo.obterItens();
         }
-        this.item = null;
-        this.lista = itemRepo.obterItens();
         return null;
     }
 
@@ -49,6 +58,30 @@ public class ListaBean implements Serializable {
         this.item = item;
     }
 
+    public BigDecimal getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(BigDecimal quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public String getMedida() {
+        return medida;
+    }
+
+    public void setMedida(String medida) {
+        this.medida = medida;
+    }
+
+    public String getItemFormatado() {
+        return itemFormatado;
+    }
+
+    public void setItemFormatado() {
+        this.itemFormatado = this.quantidade.toString()+" "+this.medida+" de "+this.item;
+    }
+
     public List<String> getLista() {
         return lista;
     }
@@ -63,5 +96,8 @@ public class ListaBean implements Serializable {
 
     public void setItensSelecionados(List<String> itensSelecionados) {
         this.itensSelecionados = itensSelecionados;
+    }
+    public List<String> getMedidas() {
+        return Arrays.asList("unidade(s)", "kilo(s)", "litro(s)", "garrafa(s)", "pacote(s)");
     }
 }

@@ -24,15 +24,26 @@
         </f:metadata>
 
         <h:form id="form-cadastro-item" styleClass="form-item-container">
-            <p:panelGrid id="panel-cadastro-item" columns="3" styleClass="input-container">
+            <p:panelGrid id="panel-cadastro-item" columns="6" styleClass="input-container">
                 <p:outputLabel value="Item:" for="input-nome-item"/>
                 <h:panelGroup styleClass="input-campo-e-erro">
                     <p:inputText value="#{listaBean.item}" id="input-nome-item" maxlength="100"/>
                     <p:message for="input-nome-item" style="font-size: 0.8rem"/>
                 </h:panelGroup>
+                <p:outputLabel value="quantidade:" for="input-quantidade-item"/>
+                <h:panelGroup styleClass="input-campo-e-erro">
+                    <p:inputText value="#{listaBean.quantidade}" id="input-quantidade-item"/>
+                    <p:message for="input-quantidade-item" style="font-size: 0.8rem"/>
+                </h:panelGroup>
+                <h:panelGroup styleClass="input-campo-e-erro">
+                <p:selectOneMenu value="#{listaBean.medida}" id="input-medida">
+                    <f:selectItem itemValue="#{null}" itemLabel="-- selecione --" />
+                    <f:selectItems value="#{listaBean.medidas}" var="cat" itemValue="#{medida}" itemLabel="#{medida}" />
+                </p:selectOneMenu>
+                </h:panelGroup>
                 <p:commandButton style="margin: 0px"
                                  value="#{'+'}"
-                                 action="#{listaBean.adicionarItem(listaBean.item)}"
+                                 action="#{listaBean.adicionarItem}"
                                  update="form-cadastro-item, form-itens"/>
             </p:panelGrid>
         </h:form>
