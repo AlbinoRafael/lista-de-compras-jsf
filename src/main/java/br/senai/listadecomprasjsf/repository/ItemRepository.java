@@ -1,28 +1,29 @@
 package br.senai.listadecomprasjsf.repository;
 
+import br.senai.listadecomprasjsf.model.ItemDeLista;
+
 import javax.enterprise.context.ApplicationScoped;
 import java.util.*;
 
 @ApplicationScoped
 public class ItemRepository {
 
-    private List<String> lista = new ArrayList<>();
+    private List<ItemDeLista> lista = new ArrayList<>();
 
     public ItemRepository() {
-        lista.add("2 unidade(s) de limão");
-        lista.add("1 kilo(s) de carne");
-        lista.add("4 litro(s) de leite");
+        lista.add(new ItemDeLista("limão", 2.0f, "unidade(s)"));
+        lista.add(new ItemDeLista("carne",1f,"kilo(s)"));
+        lista.add(new ItemDeLista("leite",4f,"litro(s)"));
     }
 
-    public List<String> obterItens() {
+    public List<ItemDeLista> obterItens() {
         return lista;
     }
 
-    public void adicionar(String itemNovo) {
+    public void adicionar(ItemDeLista itemNovo) {
         lista.add(itemNovo);
     }
-
-    public void remover(String item) {
+    public void remover(ItemDeLista item) {
         lista.remove(item);
     }
     public boolean existe(String nome) {

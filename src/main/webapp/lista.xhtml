@@ -27,13 +27,13 @@
             <p:panelGrid id="panel-cadastro-item" columns="6" styleClass="input-container">
                 <p:outputLabel value="Item:" for="input-nome-item"/>
                 <h:panelGroup styleClass="input-campo-e-erro">
-                    <p:inputText value="#{listaBean.item}" id="input-nome-item" maxlength="100" required="true"
+                    <p:inputText value="#{listaBean.item.descricao}" id="input-nome-item" maxlength="100" required="true"
                                  requiredMessage="Campo obrigatório" placeholder="digite o nome"/>
                     <p:message for="input-nome-item" style="font-size: 0.8rem"/>
                 </h:panelGroup>
                 <p:outputLabel value="quantidade:" for="input-quantidade-item"/>
                 <h:panelGroup styleClass="input-campo-e-erro">
-                    <p:inputText value="#{listaBean.quantidade}" id="input-quantidade-item" required="true"
+                    <p:inputText value="#{listaBean.item.quantidade}" id="input-quantidade-item" required="true"
                                  requiredMessage="Campo obrigatório" placeholder="0.0"
                                  converterMessage="Quantidade deve ser um valor numérico!">
                         <p:message for="input-quantidade-item" style="font-size: 0.8rem"/>
@@ -42,10 +42,10 @@
                     </p:inputText>
                 </h:panelGroup>
                 <h:panelGroup styleClass="input-campo-e-erro">
-                    <p:selectOneMenu value="#{listaBean.medida}" id="input-medida">
+                    <p:selectOneMenu value="#{listaBean.item.medida}" id="input-medida">
                         <f:selectItem itemValue="#{null}" itemLabel="-- selecione --"/>
-                        <f:selectItems value="#{listaBean.medidas}" var="cat" itemValue="#{medida}"
-                                       itemLabel="#{medida}"/>
+                        <f:selectItems value="#{listaBean.item.medidas}" var="cat" itemValue="#{listaBean.item.medida}"
+                                       itemLabel="#{listaBean.item.medida}"/>
                     </p:selectOneMenu>
                 </h:panelGroup>
                 <p:commandButton style="margin: 0px"
