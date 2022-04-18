@@ -5,11 +5,13 @@ import br.senai.listadecomprasjsf.repository.ItemRepository;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 @Named
 @SessionScoped
@@ -19,7 +21,8 @@ public class ListaBean implements Serializable {
     private ItemRepository itemRepo;
 
     private String item;
-    private BigDecimal quantidade;
+
+    private BigDecimal quantidade = BigDecimal.valueOf(0);
     private String medida;
 
     private String itemFormatado;
@@ -31,7 +34,7 @@ public class ListaBean implements Serializable {
     }
 
     public String adicionarItem() {
-        if(item!=null&&medida!=null) {
+        if(item!=null&&medida!=null&& quantidade.doubleValue()>0.0){
             setItemFormatado();
             itemRepo.adicionar(getItemFormatado());
             this.item = new String();

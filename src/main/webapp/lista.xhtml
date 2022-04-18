@@ -27,12 +27,13 @@
             <p:panelGrid id="panel-cadastro-item" columns="6" styleClass="input-container">
                 <p:outputLabel value="Item:" for="input-nome-item"/>
                 <h:panelGroup styleClass="input-campo-e-erro">
-                    <p:inputText value="#{listaBean.item}" id="input-nome-item" maxlength="100"/>
+                    <p:inputText value="#{listaBean.item}" id="input-nome-item" maxlength="100" required="true" requiredMessage="Campo obrigatório"/>
                     <p:message for="input-nome-item" style="font-size: 0.8rem"/>
                 </h:panelGroup>
                 <p:outputLabel value="quantidade:" for="input-quantidade-item"/>
                 <h:panelGroup styleClass="input-campo-e-erro">
-                    <p:inputText value="#{listaBean.quantidade}" id="input-quantidade-item"/>
+                    <p:inputText value="#{listaBean.quantidade}" id="input-quantidade-item" required="true" requiredMessage="Campo obrigatório"
+                                 converterMessage="Quantidade deve ser um valor numérico!"/>
                     <p:message for="input-quantidade-item" style="font-size: 0.8rem"/>
                 </h:panelGroup>
                 <h:panelGroup styleClass="input-campo-e-erro">

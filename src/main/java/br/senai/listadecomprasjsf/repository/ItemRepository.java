@@ -9,9 +9,9 @@ public class ItemRepository {
     private List<String> lista = new ArrayList<>();
 
     public ItemRepository() {
-        lista.add("Item 1");
-        lista.add("Item 2");
-        lista.add("Item 3");
+        lista.add("2 unidade(s) de limão");
+        lista.add("1 kilo(s) de carne");
+        lista.add("4 litro(s) de leite");
     }
 
     public List<String> obterItens() {
