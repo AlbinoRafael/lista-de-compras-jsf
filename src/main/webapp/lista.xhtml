@@ -24,7 +24,7 @@
         </f:metadata>
 
         <h:form id="form-cadastro-item" styleClass="form-item-container">
-            <p:panelGrid id="panel-cadastro-item" columns="6" styleClass="input-container">
+            <h:panelGrid id="panel-cadastro-item" columns="6" styleClass="input-container">
                 <p:outputLabel value="Item:" for="input-nome-item"/>
                 <h:panelGroup styleClass="input-campo-e-erro">
                     <p:inputText value="#{listaBean.item.descricao}" id="input-nome-item" maxlength="100"
@@ -52,11 +52,11 @@
                                  value="#{'+'}"
                                  action="#{listaBean.adicionarItem}"
                                  update="form-cadastro-item, form-itens"/>
-            </p:panelGrid>
+            </h:panelGrid>
         </h:form>
 
         <h:form id="form-itens">
-            <p:panelGrid id="panel-lista-item" columns="2" styleClass="list-container">
+            <h:panelGrid id="panel-lista-item" columns="2" styleClass="list-container">
                 <h:panelGroup styleClass="lista-e-botao">
                     <p:selectManyMenu id="advanced" value="#{listaBean.itensSelecionados}"
                                       var="item" filter="true" filterMatchMode="contains" showCheckbox="true"
@@ -72,8 +72,13 @@
                                      onclick="return confirm('Confirma exclusão?')" styleClass="ui-button-danger"
                                      update="advanced"/>
                 </p:column>
-            </p:panelGrid>
+            </h:panelGrid>
         </h:form>
+        <div class="link-impressao">
+            <h:form id="form-impressao">
+                <h:link value="Ir para a página de Impressão" outcome="impressao"/>
+            </h:form>
+        </div>
     </div>
 </h:body>
 </html>

@@ -2,8 +2,6 @@
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-X
-(src/main/webapp/resources/css/styles.css,4\2\427775e2015b413542fec34801ef44d8d4e22b2c
 w
 Gsrc/main/java/br/senai/listadecomprasjsf/repository/ItemRepository.java,b\1\b1d62077fbe10beca29deba0bcef8b685e2d5d66
 {
