@@ -63,3 +63,10 @@ body {
 .link-impressao{
     margin: 40px;
 }
+form-itens{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 10px;
+}

@@ -12,6 +12,21 @@
     <h:outputStylesheet name="css/styles.css"/>
 </h:head>
 <h:body>
-
+    <div class="main">
+    <h:form id="form-itens" styleClass="form-itens">
+        <p:dataTable id="tb-itens" value="#{listaBean.lista}" var="item" emptyMessage="Sem registros"
+                  tableStyle="text-align: center; flex-direction: column; display: flex"
+                     allowUnsorting="true" sortMode="single" styleClass="tb-itens-style">
+            <p:column sortBy="#{item.descricao}">
+                <h:outputText value="#{item.toString()}"/>
+            </p:column>
+        </p:dataTable>
+    </h:form>
+        <div class="voltar-lista">
+            <h:form id="form-voltar-lista">
+                <h:link value="voltar" outcome="lista"/>
+            </h:form>
+        </div>
+    </div>
 </h:body>
 </html>
